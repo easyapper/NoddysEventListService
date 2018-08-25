@@ -1,0 +1,27 @@
+
+{
+    "gatewayApp": {
+        "formapplicationFormV1" : {
+            "home": {
+                "title": "FormV1S",
+                "createLabel": "नया Form V 1 बनाएँ",
+                "createOrEditLabel": "Form V 1 बनाएँ या संपादित करें"
+            },
+            "delete": {
+                "question": "Form V 1 [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Form V 1"
+            },
+            "customerId": "Customer Id",
+            "formType": "Form Type"
+        }
+    },
+    "formapplicationApp": {
+        "formapplicationFormV1" : {
+            "created": "एक नया Form V 1 [identifier: {{ param }}] तैयार है",
+            "updated": "एक Form V 1 [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Form V 1 [identifier: {{ param }}] हटा दिया है"
+        }
+    }
+}

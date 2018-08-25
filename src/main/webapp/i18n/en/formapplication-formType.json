@@ -1,0 +1,11 @@
+{
+    "gatewayApp": {
+        "FormType" : {
+            "null": "",
+            "SURVEY": "SURVEY",
+            "SIGNUP": "SIGNUP",
+            "REGISTRATION": "REGISTRATION",
+            "COMPLAINT": "COMPLAINT"
+        }
+    }
+}
