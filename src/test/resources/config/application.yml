@@ -17,19 +17,17 @@ eureka:
     client:
         enabled: false
     instance:
-        appname: gateway
-        instanceId: gateway:${spring.application.instance-id:${random.value}}
+        appname: formapplication
+        instanceId: formapplication:${spring.application.instance-id:${random.value}}
 
 spring:
     application:
-        name: gateway
-    cache:
-        type: simple
+        name: formapplication
     data:
         mongodb:
             host: localhost
             port: 0
-            database: gateway
+            database: formapplication
     mail:
         host: localhost
     messages:
@@ -67,13 +65,10 @@ jhipster:
             host: localhost
             port: 5000
             queue-size: 512
-    mail:
-        from: test@localhost
-        base-url: http://127.0.0.1:8080
     security:
         authentication:
             jwt:
-                secret: 5969489d5f36957b4f7d913a50e37c8eb61cf861
+                secret: 66775bba54f5140e61c4e8b249f67ac901d9692c
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

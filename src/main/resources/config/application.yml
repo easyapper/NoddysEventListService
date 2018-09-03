@@ -24,8 +24,8 @@ eureka:
         instance-info-replication-interval-seconds: 10
         registry-fetch-interval-seconds: 10
     instance:
-        appname: gateway
-        instanceId: gateway:${spring.application.instance-id:${random.value}}
+        appname: formapplication
+        instanceId: formapplication:${spring.application.instance-id:${random.value}}
         lease-renewal-interval-in-seconds: 5
         lease-expiration-duration-in-seconds: 10
         status-page-url-path: ${management.endpoints.web.base-path}/info
@@ -40,13 +40,14 @@ eureka:
 ribbon:
     eureka:
         enabled: true
-# See http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
-zuul: # those values must be configured depending on the application specific needs
-    host:
-        max-total-connections: 1000
-        max-per-route-connections: 100
-    semaphore:
-        max-semaphores: 500
+feign:
+    hystrix:
+        enabled: true
+#    client:
+#        config:
+#            default:
+#                connectTimeout: 5000
+#                readTimeout: 5000
 
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
@@ -54,8 +55,11 @@ hystrix:
         default:
             execution:
                 isolation:
-                    thread:
-                        timeoutInMilliseconds: 10000
+                    strategy: SEMAPHORE
+# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
+#                    thread:
+#                        timeoutInMilliseconds: 10000
+    shareSecurityContext: true
 
 management:
     endpoints:
@@ -77,7 +81,7 @@ management:
 
 spring:
     application:
-        name: gateway
+        name: formapplication
     messages:
         basename: i18n/messages
     mvc:
@@ -117,11 +121,11 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: gateway@localhost
+        from: formapplication@localhost
     swagger:
         default-include-pattern: /api/.*
-        title: gateway API
-        description: gateway API documentation
+        title: formapplication API
+        description: formapplication API documentation
         version: 0.0.1
         terms-of-service-url:
         contact-name:
